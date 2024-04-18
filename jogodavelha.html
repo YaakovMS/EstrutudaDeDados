@@ -1,0 +1,48 @@
+<!-- Yaakov Meir Sabbah 2214290075 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Velha</title>
+    <style>
+        .square {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            display: inline-block;
+            text-align: center;
+            line-height: 100px;
+            font-size: 40px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="board">
+        <div class="square" onclick="makeMove(0, 0)"></div>
+        <div class="square" onclick="makeMove(0, 1)"></div>
+        <div class="square" onclick="makeMove(0, 2)"></div><br>
+        <div class="square" onclick="makeMove(1, 0)"></div>
+        <div class="square" onclick="makeMove(1, 1)"></div>
+        <div class="square" onclick="makeMove(1, 2)"></div><br>
+        <div class="square" onclick="makeMove(2, 0)"></div>
+        <div class="square" onclick="makeMove(2, 1)"></div>
+        <div class="square" onclick="makeMove(2, 2)"></div>
+    </div>
+
+    <script>
+        let board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+        let player = 1;
+
+        function makeMove(row, col) {
+            if (board[row][col] === 0) {
+                board[row][col] = player;
+                document.getElementById('board').children[row * 3 + col].innerText = player === 1 ? 'X' : 'O';
+                player = -player;
+            }
+        }
+    </script>
+</body>
+</html>
